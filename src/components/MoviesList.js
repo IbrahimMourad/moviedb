@@ -20,7 +20,6 @@ const MovieList = ({ moviesList, openPopup }) => {
       </div>
     );
   });
-  console.log(moviesList);
 
   return (
     <div className="container">
