@@ -1,17 +1,15 @@
 import React from "react";
-import { Container } from "react-bootstrap";
 import axios from "axios";
 
 import MoviesList from "./MoviesList";
 import SearchBar from "./SearchBar";
+import history from "../history";
 import Popup from "./Popup";
-
 class Main extends React.Component {
   state = { resultData: [], currentSelected: [], query: "" };
 
   changeHandler = (e) => {
     this.setState({ query: e.target.value });
-    console.log(this.state.query);
   };
 
   onEnterPress = async (e) => {
@@ -26,13 +24,11 @@ class Main extends React.Component {
       `https://api.themoviedb.org/3/movie/${movieID}?api_key=85888d813e23d816e386a1d58a0238c5&language=en-US`
     );
     this.setState({ currentSelected: response.data });
-
-    console.log(this.state.currentSelected);
-    console.log(this.state.currentSelected.id, "id");
   };
 
   closePopup = () => {
     this.setState({ currentSelected: [] });
+    history.push("/");
   };
   render() {
     return (

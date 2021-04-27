@@ -5,7 +5,6 @@ class AddMovie extends Component {
   constructor(props) {
     super(props);
     this.handleInputChange = this.handleInputChange.bind(this);
-    this.renderAddedMovie = this.renderAddedMovie.bind(this);
   }
   state = {
     movieName: "Enter Name",
@@ -21,9 +20,7 @@ class AddMovie extends Component {
       [name]: value,
     });
   }
-  renderAddedMovie() {
-    console.log(this.state);
-  }
+
   render() {
     return (
       <div className="container">
